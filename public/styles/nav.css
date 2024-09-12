@@ -23,6 +23,14 @@ main {
     background-color: var(--color-gray-800);
 }
 
+#top-header button:hover,
+#top-header button:active,
+#lang-dropdown-content a:hover,
+#lang-dropdown-content a:active,
+#logo #back-btn:hover {
+    background-color: var(--color-gray-700);
+}
+
 #main-tabs {
     position: fixed;
     bottom: 0;
@@ -67,22 +75,18 @@ main {
     color: var(--color-gray-800);
 }
 
-#logo #back-btn {
-    color: var(--color-gray-300)
-}
-
+#logo #back-btn,
 .tab-items .dropdown button {
     color: var(--color-gray-300);
 }
 
 .tab-items a:hover,
 .tab-items a:active,
-.tab-items button:hover,
-#logo #back-btn:hover {
-    background-color: var(--color-primary-500-bg);
+.tab-items button:hover {
+    background-color: var(--color-primary-500);
 }
 
-.tab-items button img {
+#account-btn img {
     /* height: 50%; */
     border-radius: 100%;
     width: 2.5rem;
@@ -144,7 +148,7 @@ main {
 
 #sidenav button:hover,
 #sidenav a:hover {
-    background-color: var(--color-primary-500-bg);
+    background-color: var(--color-gray-700);
 }
 
 /* The container <div> - needed to position the dropdown content */
