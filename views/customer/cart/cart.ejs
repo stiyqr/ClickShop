@@ -1,0 +1,39 @@
+<%- include('../../shared/includes/head', { pageTitle: 'Your Cart' }) %>
+<link rel="stylesheet" href="/styles/cart.css">
+<script src="/scripts/cart-item-management.js" defer></script>
+</head>
+<body>
+    <%- include('../../shared/includes/header', {haveBackBtn: false}) %>
+    <main>
+        <h1 class="lang-en">Your Cart</h1>
+        <h1 class="lang-id">Keranjang</h1>
+        <ul id="cart-items">
+            <% if (!locals.cart.items || locals.cart.items.length === 0) { %>
+                <p class="lang-en">No items in cart.</p>
+                <p class="lang-id">Keranjang kosong.</p>
+            <% } %>
+            <% for (const cartItem of locals.cart.items) { %>
+            <li>
+                <%- include('includes/cart-item', { item: cartItem }) %>
+            </li>
+            <% } %>
+        </ul>
+        <div id="cart-total">
+            <p>Total: NTD$<span id="cart-total-price"><%= locals.cart.totalPrice %></span></p>
+            <% if (locals.isAuth) { %>
+                <form action="/orders" method="POST">
+                    <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
+                    <button class="btn">
+                        <span class="lang-en">Buy Products</span>
+                        <span class="lang-id">Beli Produk</span>
+                    </button>
+                </form>
+            <% } else { %>
+                <p id="cart-total-fallback">
+                    <span class="lang-en">Log in to purchase the items</span>
+                    <span class="lang-id">Log in untuk beli</span>
+                </p>
+            <% } %>
+        </div>
+    </main>
+<%- include('../../shared/includes/footer') %>

@@ -1,0 +1,14 @@
+<%- include('../../shared/includes/head', { pageTitle: 'Update Product' }) %>
+<link rel="stylesheet" href="/styles/forms.css">
+<script src="/scripts/image-preview.js" defer></script>
+<script src="/scripts/subcategory-options.js" defer></script>
+<script src="/scripts/promo-options.js" defer></script>
+</head>
+<body>
+    <%- include('../../shared/includes/header', {haveBackBtn: true}) %>
+    <main>
+        <h1 class="lang-en">Update Product</h1>
+        <h1 class="lang-id">Ubah Produk</h1>
+        <%- include('includes/product-form', { submitPath: '/admin/products/' + product.id, product: product, imageRequired: false, categories: categories }) %>
+    </main>
+<%- include('../../shared/includes/footer') %>

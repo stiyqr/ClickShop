@@ -1,0 +1,7 @@
+.theme-avatar {
+    width:calc(35px + (45 - 35) * ((100vw - 320px) / (1920 - 320)));
+    height:calc(35px + (45 - 35) * ((100vw - 320px) / (1920 - 320)));
+    border-radius:100%;
+    -o-object-fit:contain;
+    object-fit:contain
+}

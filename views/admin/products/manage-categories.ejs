@@ -1,0 +1,40 @@
+<%- include('../../shared/includes/head', { pageTitle: 'Manage Categories' }) %>
+<link rel="stylesheet" href="/styles/products.css">
+<script src="/scripts/category-management.js" defer></script>
+</head>
+<body>
+    <%- include('../../shared/includes/header', {haveBackBtn: false}) %>
+    <main>
+        <section>
+            <h2 class="lang-en">Add New Category</h2>
+            <h2 class="lang-id">Tambah Kategori Baru</h2>
+            <p>
+                <a href="/admin/categories/new" class="btn">Add Category</a>
+            </p>
+        </section>
+        <br>
+        <section>
+            <h2 class="lang-en">Add New Subcategory</h2>
+            <h2 class="lang-id">Tambah Subkategori Baru</h2>
+            <p>
+                <a href="/admin/subcategories/new" class="btn">Add Subcategory</a>
+            </p>
+        </section>
+        <br><hr>
+        <section>
+            <h1 class="lang-en">Existing Categories</h1>
+            <h1 class="lang-id">Kategori yang ada</h1>
+            <ul id="products-grid">
+                <% if (!categories || categories.length === 0) { %>
+                    <p class="lang-en">No categories.</p>
+                    <p class="lang-id">Tidak ada kategori.</p>
+                <% } %>
+                <% for (const category of categories) { %>
+                <li>
+                    <%- include('../../shared/includes/category-item', { category: category }) %>
+                </li>
+                <% } %>
+            </ul>
+        </section>
+    </main>
+<%- include('../../shared/includes/footer') %>

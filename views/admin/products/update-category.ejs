@@ -1,0 +1,12 @@
+<%- include('../../shared/includes/head', { pageTitle: 'Update Category' }) %>
+<link rel="stylesheet" href="/styles/forms.css">
+<script src="/scripts/image-preview.js" defer></script>
+</head>
+<body>
+    <%- include('../../shared/includes/header', {haveBackBtn: true}) %>
+    <main>
+        <h1 class="lang-en">Update Category</h1>
+        <h1 class="lang-id">Ubah Kategori</h1>
+        <%- include('includes/category-form', { submitPath: '/admin/categories/' + category.id, category: category, imageRequired: false }) %>
+    </main>
+<%- include('../../shared/includes/footer') %>

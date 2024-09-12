@@ -1,0 +1,40 @@
+<article class="product-item">
+    <% if (product.hasPromo === true) { %>
+        <span class="promo-badge">
+            PROMO
+        </span>
+    <% } %>
+    <div class="product-item-container">
+        <a href="/products/<%= product.id %>">
+            <img src="<%= product.imageUrl %>" alt="<%= product.title %>">
+        </a>
+        <div class="product-item-content">
+            <div class="product-item-clickable" onclick="location.href='/products/<%= product.id %>'">
+                <h2><%= product.title %></h2>
+                <p>
+                    <% if (product.hasPromo === true) { %>
+                        <s>NT$<%= product.originalPrice %></s>
+                        NT$<%= product.price %>
+                    <% } else { %>
+                        NT$<%= product.price %>
+                    <% } %>
+                </p>
+            </div>
+            <div class="product-item-actions">
+                <% if (locals.isAdmin) { %>
+                    <a class="btn btn-alt" href="/admin/products/<%= product.id %>">
+                        <span class="material-symbols-outlined">edit</span>
+                    </a>
+                    <button class="btn btn-alt" data-productid="<%= product.id %>" data-csrf="<%= locals.csrfToken %>">
+                        <span class="material-symbols-outlined">delete</span>
+                    </button>
+                <% } else { %>
+                    <button class="btn add-to-cart-btn" data-productid="<%= product.id %>" data-csrf="<%= locals.csrfToken %>">
+                        <span class="lang-en">Add to Cart</span>
+                        <span class="lang-id">Tambah ke Keranjang</span>
+                    </button>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</article>

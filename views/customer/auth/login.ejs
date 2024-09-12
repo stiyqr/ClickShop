@@ -1,0 +1,32 @@
+<%- include('../../shared/includes/head', { pageTitle: 'Log In' }) %>
+    <link rel="stylesheet" href="/styles/forms.css">
+    <link rel="stylesheet" href="/styles/auth.css">
+</head>
+<body>
+    <%- include('../../shared/includes/header', {haveBackBtn: false}) %>
+    <main>
+        <h1>Log In</h1>
+        <% if (inputData.errorMessage) { %>
+            <section class="alert">
+                <h2>Invalid Credentials</h2>
+                <p><%= inputData.errorMessage %></p>
+            </section>
+        <% } %>
+        <form action="/login" method="POST">
+            <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
+            <p>
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" value="<%= inputData.username %>" required>
+            </p>
+            <p>
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" value="<%= inputData.password %>" required>
+            </p>
+            <button class="btn">Log In</button>
+            <p id="switch-form"><a href="/signup">
+                <span class="lang-en">No account? Create one now</span>
+                <span class="lang-id">Tidak ada akun? Daftar sekarang</span>
+            </a></p>
+        </form>
+    </main>
+<%- include('../../shared/includes/footer') %>

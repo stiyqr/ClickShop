@@ -1,0 +1,28 @@
+<form action="<%= submitPath %>?_csrf=<%= locals.csrfToken %>" method="POST" enctype="multipart/form-data">
+    <p>
+        <label for="title">
+            <span class="lang-en">Title</span>
+            <span class="lang-id">Nama</span>
+        </label>
+        <input type="text" id="title" name="title" value="<%= category.title %>" required>
+    </p>
+
+    <div id="image-upload-control">
+        <p>
+            <label for="image">
+                <span class="lang-en">Image</span>
+                <span class="lang-id">Gambar</span>
+            </label>
+            <input type="file" id="image" name="image" accept="image/png,image/jpg" <% if (imageRequired) { %>required<% } %>>
+        </p>
+        <img src="" alt="Selected image.">
+    </div>
+    
+    <p>
+        <button id="reset-button" type="reset" class="btn btn-alt">Reset</button>
+        <button class="btn">
+            <span class="lang-en">Save</span>
+            <span class="lang-id">Simpan</span>
+        </button>
+    </p>
+</form>

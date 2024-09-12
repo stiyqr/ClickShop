@@ -1,0 +1,23 @@
+<%- include('../../shared/includes/head', { pageTitle: categoryName }) %>
+<link rel="stylesheet" href="/styles/products.css">
+<% if (locals.isAdmin) { %>
+    <script src="/scripts/subcategory-management.js" defer></script>
+<% } %>
+</head>
+<body>
+    <%- include('../../shared/includes/header', {haveBackBtn: true}) %>
+    <main>
+        <h1><%= categoryName %></h1>
+        <ul id="products-grid">
+            <% if (!subcategories || subcategories.length === 0) { %>
+                <p class="lang-en">No subcategories.</p>
+                <p class="lang-id">Tidak ada produk.</p>
+            <% } %>
+            <% for (const subcategory of subcategories) { %>
+            <li>
+                <%- include('../../shared/includes/subcategory-item', { categoryId: categoryId, subcategory: subcategory }) %>
+            </li>
+            <% } %>
+        </ul>
+    </main>
+<%- include('../../shared/includes/footer') %>

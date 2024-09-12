@@ -1,0 +1,56 @@
+<%- include('../../shared/includes/head', { pageTitle: 'Sign Up' }) %>
+    <link rel="stylesheet" href="/styles/forms.css">
+    <link rel="stylesheet" href="/styles/auth.css">
+</head>
+<body>
+    <%- include('../../shared/includes/header', {haveBackBtn: false}) %>
+    <main>
+        <h1 class="lang-en">Create Account</h1>
+        <h1 class="lang-id">Akun Baru</h1>
+        <% if (inputData.errorMessage) { %>
+            <section class="alert">
+                <h2>Invalid Input</h2>
+                <p><%= inputData.errorMessage %></p>
+            </section>
+        <% } %>
+        <form action="/signup" method="POST">
+            <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
+            <h2 class="lang-en">Enter Contact Info</h2>
+            <h2 class="lang-id">Masukkan Informasi</h2>
+            <p>
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" value="<%= inputData.username %>" required>
+            </p>
+            <p>
+                <label for="phone">
+                    <span class="lang-en">Phone Number</span>
+                    <span class="lang-id">Nomor HP</span>
+                </label>
+                <input type="tel" id="phone" name="phone" value="<%= inputData.phone %>" required>
+            </p>
+            <h2 class="lang-en">Create Password</h2>
+            <h2 class="lang-id">Masukkan Password</h2>
+            <p class="lang-en">Must contains at least 4 characters</p>
+            <p class="lang-id">Minimal 4 huruf</p>
+            <p>
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" minlength="4" value="<%= inputData.password %>" required>
+            </p>
+            <p>
+                <label for="confirm-password">
+                    <span class="lang-en">Confirm Password</span>
+                    <span class="lang-id">Konfirmasi Password</span>
+                </label>
+                <input type="password" id="confirm-password" name="confirm-password" minlength="4" value="<%= inputData.confirmPassword %>" required>
+            </p>
+            <button class="btn">
+                <span class="lang-en">Create Account</span>
+                <span class="lang-id">Daftar</span>
+            </button>
+            <p id="switch-form"><a href="/login">
+                <span class="lang-en">Log In instead</span>
+                <span class="lang-id">Log In</span>
+            </a></p>
+        </form>
+    </main>
+<%- include('../../shared/includes/footer') %>

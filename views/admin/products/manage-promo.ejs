@@ -1,0 +1,20 @@
+<%- include('../../shared/includes/head', { pageTitle: 'Promo Product Administration' }) %>
+<link rel="stylesheet" href="/styles/products.css">
+<script src="/scripts/product-management.js" defer></script>
+</head>
+<body>
+    <%- include('../../shared/includes/header', {haveBackBtn: false}) %>
+    <main>
+        <section>
+            <h1 class="lang-en">Promo Products</h1>
+            <h1 class="lang-id">Produk Promo</h1>
+            <ul id="products-grid">
+                <% for (const product of products) { %>
+                <li>
+                    <%- include('../../shared/includes/product-item', { product: product }) %>
+                </li>
+                <% } %>
+            </ul>
+        </section>
+    </main>
+<%- include('../../shared/includes/footer') %>

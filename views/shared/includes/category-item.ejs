@@ -1,0 +1,20 @@
+<article class="category-item">
+    <a href="/categories/<%= category.id %>">
+        <img src="<%= category.imageUrl %>" alt="<%= category.title %>">
+    </a>
+    <div class="category-item-content">
+        <div class="category-item-clickable" onclick="location.href='/categories/<%= category.id %>'">
+            <h2><%= category.title %></h2>
+        </div>
+        <div class="category-item-actions">
+            <% if (locals.isAdmin) { %>
+                <a class="btn btn-alt" href="/admin/categories/<%= category.id %>">
+                    <span class="material-symbols-outlined">edit</span>
+                </a>
+                <button class="btn btn-alt" data-categoryid="<%= category.id %>" data-csrf="<%= locals.csrfToken %>" <% if (category.isPulsa) { %>disabled<% } %>>
+                    <span class="material-symbols-outlined">delete</span>
+                </button>
+            <% } %>
+        </div>
+    </div>
+</article>

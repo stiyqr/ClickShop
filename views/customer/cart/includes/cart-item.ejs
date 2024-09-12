@@ -1,0 +1,16 @@
+<article class="cart-item">
+    <div class="cart-item-info">
+        <h2><%= item.product.title %></h2>
+        <p>NTD$<span class="cart-item-price"><%= item.totalPrice %></span> <span class="cart-product-price">(NTD$<%= item.product.price %>)</span></p>
+    </div>
+
+    <form class="cart-item-management" data-productid="<%= item.product.id %>" data-csrf="<%= locals.csrfToken %>">
+        <input type="number" value="<%= item.quantity %>" required size="50">
+        <!-- <button class="btn btn-alt">
+            <span class="lang-en">Update</span>
+            <span class="lang-id">Ubah</span>
+        </button> -->
+        <button class="btn btn-alt cart-btn cart-min-btn">-</button>
+        <button class="btn btn-alt cart-btn cart-plus-btn">+</button>
+    </form>
+</article>

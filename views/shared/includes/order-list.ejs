@@ -1,0 +1,10 @@
+<ol>
+    <% if (!orders || orders.length === 0) { %>
+        <p>No orders yet...</p>
+    <% } %>
+    <% for (const order of orders) { %>
+        <li>
+            <%- include('order-item', { order: order }) %>
+        </li>
+    <% } %>
+</ol>

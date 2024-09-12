@@ -1,0 +1,20 @@
+<article class="category-item">
+    <a href="/categories/<%= categoryId %>/sub/<%= subcategory.id %>">
+        <img src="<%= subcategory.imageUrl %>" alt="<%= subcategory.title %>">
+    </a>
+    <div class="category-item-content">
+        <div class="category-item-clickable" onclick="location.href='/categories/<%= categoryId %>/sub/<%= subcategory.id %>'">
+            <h2><%= subcategory.title %></h2>
+        </div>
+        <div class="category-item-actions">
+            <% if (locals.isAdmin) { %>
+                <a class="btn btn-alt" href="/admin/subcategories/<%= subcategory.id %>">
+                    <span class="material-symbols-outlined">edit</span>
+                </a>
+                <button class="btn btn-alt" data-subcategoryid="<%= subcategory.id %>" data-csrf="<%= locals.csrfToken %>">
+                    <span class="material-symbols-outlined">delete</span>
+                </button>
+            <% } %>
+        </div>
+    </div>
+</article>

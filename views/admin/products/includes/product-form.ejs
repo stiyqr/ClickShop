@@ -1,0 +1,87 @@
+<form action="<%= submitPath %>?_csrf=<%= locals.csrfToken %>" method="POST" enctype="multipart/form-data">
+    <p>
+        <label for="title">
+            <span class="lang-en">Title</span>
+            <span class="lang-id">Nama</span>
+        </label>
+        <input type="text" id="title" name="title" value="<%= product.title %>" required>
+    </p>
+
+    <div id="image-upload-control">
+        <p>
+            <label for="image">
+                <span class="lang-en">Image</span>
+                <span class="lang-id">Gambar</span>
+            </label>
+            <input type="file" id="image" name="image" accept="image/png,image/jpg" <% if (imageRequired) { %>required<% } %>>
+        </p>
+        <img src="" alt="Selected image.">
+    </div>
+
+    <p>
+        <label for="category">
+            <span class="lang-en">Category: <%= product.categoryName %></span>
+            <span class="lang-id">Kategori: <%= product.categoryName %></span>
+        </label>
+        <select id="category" name="category" required data-csrf="<%= locals.csrfToken %>">
+            <option value="" disabled>Choose Category</option>
+            <% for (const category of categories) { %>
+                <option value="<%= category.id %>" <% if (category.id === product.category) { %>selected<% } %>>
+                    <%= category.title %>
+                </option>
+            <% } %>
+        </select>
+    </p>
+    <p>
+        <label for="subcategory">
+            <span class="lang-en">Subcategory: <%= product.subcategoryName %></span>
+            <span class="lang-id">Subkategori: <%= product.subcategoryName %></span>
+        </label>
+        <select id="subcategory" name="subcategory" required data-originalvalue="<%= product.subcategory %>">
+        </select>
+    </p>
+    <p>
+        <label for="summary">
+            <span class="lang-en">Summary</span>
+            <span class="lang-id">Deskripsi Singkat</span>
+        </label>
+        <input type="text" id="summary" name="summary" value="<%= product.summary %>" required maxlength="250">
+    </p>
+    <p>
+        <label for="originalPrice">
+            <span class="lang-en">Price</span>
+            <span class="lang-id">Harga</span>
+        </label>
+        <input type="number" id="originalPrice" name="originalPrice" value="<%= product.originalPrice %>" min="1" step="1" required>
+    </p>
+    <p>
+        <label for="description">
+            <span class="lang-en">Description</span>
+            <span class="lang-id">Deskripsi</span>
+        </label>
+        <textarea id="description" name="description" rows="7" required><%= product.description %></textarea>
+    </p>
+    <p>
+        <label for="hasPromo">Promo</label>
+        <select id="hasPromo" name="hasPromo" required>
+            <option value="false">No</option>
+            <option value="true" <% if (product.hasPromo) { %>selected<% } %>>Yes</option>
+        </select>
+    </p>
+    <p id="promo-price-section">
+        <label for="promoPrice">
+            <span class="lang-en">Promo Price</span>
+            <span class="lang-id">Harga Promo</span>
+        </label>
+        <input type="number" id="promoPrice" name="promoPrice" value="<%= product.promoPrice %>" min="1" step="1">
+    </p>
+
+    
+    <p>
+        <button id="reset-button" type="reset" class="btn btn-alt">Reset</button>
+        <button class="btn">
+            <span class="lang-en">Save</span>
+            <span class="lang-id">Simpan</span>
+        </button>
+    </p>
+</form>

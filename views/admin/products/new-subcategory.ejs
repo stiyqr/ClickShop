@@ -1,0 +1,20 @@
+<%- include('../../shared/includes/head', { pageTitle: 'Add New Subcategory' }) %>
+<link rel="stylesheet" href="/styles/forms.css">
+<script src="/scripts/image-preview.js" defer></script>
+</head>
+<body>
+    <%- include('../../shared/includes/header', {haveBackBtn: true}) %>
+    <main>
+        <h1 class="lang-en">Add New Subcategory</h1>
+        <h1 class="lang-id">Subkategori Baru</h1>
+        <%- include('includes/subcategory-form', { 
+            submitPath: '/admin/subcategories',
+            subcategory: {
+                title: '',
+                parentCategory: ''
+            },
+            categories: categories, 
+            imageRequired: true 
+        }) %>
+    </main>
+<%- include('../../shared/includes/footer') %>

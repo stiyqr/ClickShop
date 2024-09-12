@@ -1,0 +1,45 @@
+<header id="top-header">
+    <div id="logo">
+        <% if (haveBackBtn) { %>
+        <button id="back-btn" onclick="goBack()"><span class="material-symbols-outlined">arrow_back</span></button>
+        <!-- <button id="back-btn" onclick="goBack()"><i class="iconly-Arrow-Left-Square icli"></i></button> -->
+        <% } %>
+        <a href="/">TUKU</a>
+    </div>
+    <div>
+        <ul class="tab-items">
+            <li>
+                <div class="dropdown">
+                    <button id="lang-dropdown-btn" class="dropdown-btn" data-csrf="<%= locals.csrfToken %>"><span class="material-symbols-outlined">language</span></button>
+                    <div id="lang-dropdown-content" class="dropdown-content">
+                        <a id="lang-en-btn">English</a>
+                        <a id="lang-id-btn">Indonesian</a>
+                    </div>
+                 </div>
+            </li>
+            <li>
+                <!-- <button id="account-btn"><span class="material-symbols-outlined">account_circle</span></button> -->
+                <button id="account-btn"><img class="theme-avatar" src="/theme/avatar.jpg" alt="me" /></button>
+            </li>
+        </ul>
+    </div>
+</header>
+
+<div id="sidenav-bg">
+    <div id="sidenav">
+        <% if (locals.isAuth) { %>
+            <!-- <a id="language-btn" href="#">Change Language</a> -->
+            <form action="/logout" method="POST">
+                <input
+                    type="hidden"
+                    name="_csrf"
+                    value="<%= locals.csrfToken %>"
+                />
+                <button>Logout</button>
+            </form>
+        <% } else { %>
+            <a href="/login">Log In</a>
+            <a href="/signup">Sign Up</a>
+        <% } %>
+    </div>
+</div>

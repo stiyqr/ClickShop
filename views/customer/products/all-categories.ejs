@@ -1,0 +1,21 @@
+<%- include('../../shared/includes/head', { pageTitle: 'Categories' }) %>
+<link rel="stylesheet" href="/styles/products.css">
+</head>
+<body>
+    <%- include('../../shared/includes/header', {haveBackBtn: false}) %>
+    <main>
+        <h1 class="lang-en">Categories</h1>
+        <h1 class="lang-id">Kategori</h1>
+        <ul id="products-grid">
+            <% if (!categories || categories.length === 0) { %>
+                <p class="lang-en">No categories.</p>
+                <p class="lang-id">Tidak ada kategori.</p>
+            <% } %>
+            <% for (const category of categories) { %>
+            <li>
+                <%- include('../../shared/includes/category-item', { category: category }) %>
+            </li>
+            <% } %>
+        </ul>
+    </main>
+<%- include('../../shared/includes/footer') %>

@@ -1,0 +1,37 @@
+<article class="order-item">
+    <header class="order-summary">
+        <h2><span class="order-item-price">$<%= order.productData.totalPrice %></span> - <%= order.formattedDate %></h2>
+        <p><span class="badge"><%= order.status.toUpperCase() %></span></p>
+    </header>
+  
+    <section class="order-details">
+        <% if (locals.isAdmin) { %>
+            <address>
+                <p><%= order.userData.username %></p>
+            </address>
+        <% } %>
+        <ul>
+            <% for (const item of order.productData.items) { %>
+                <li><%= item.product.title %> - $<%= item.totalPrice %> ($<%= item.product.price %> x <%= item.quantity %>)</li>
+            <% } %>
+        </ul>
+    </section>
+  
+    <% if (locals.isAdmin) { %>
+        <section class="order-actions">
+            <form>
+                <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
+                <input type="hidden" name="orderid" value="<%= order.id %>">
+                <select name="status">
+                    <option value="pending" <% if (order.status === 'pending') { %>selected<% } %>>Pending</option>
+                    <option value="completed" <% if (order.status === 'completed') { %>selected<% } %>>Completed</option>
+                    <option value="canceled" <% if (order.status === 'canceled') { %>selected<% } %>>Canceled</option>
+                </select>
+                <button class="btn btn-alt">
+                    <span class="lang-en">Update</span>
+                    <span class="lang-id">Ubah</span>
+                </button>
+            </form>
+        </section>
+    <% } %>
+</article>

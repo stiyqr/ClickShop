@@ -1,0 +1,28 @@
+<%- include('../../shared/includes/head', { pageTitle: 'Product Administration' }) %>
+<link rel="stylesheet" href="/styles/products.css">
+<script src="/scripts/product-management.js" defer></script>
+</head>
+<body>
+    <%- include('../../shared/includes/header', {haveBackBtn: false}) %>
+    <main>
+        <section>
+            <h2 class="lang-en">Add New Product</h2>
+            <h2 class="lang-id">Tambah Produk Baru</h2>
+            <p>
+                <a href="/admin/products/new" class="btn">Add Product</a>
+            </p>
+        </section>
+        <br><hr>
+        <section>
+            <h1 class="lang-en">Existing Products</h1>
+            <h1 class="lang-id">Produk yang ada</h1>
+            <ul id="products-grid">
+                <% for (const product of products) { %>
+                <li>
+                    <%- include('../../shared/includes/product-item', { product: product }) %>
+                </li>
+                <% } %>
+            </ul>
+        </section>
+    </main>
+<%- include('../../shared/includes/footer') %>

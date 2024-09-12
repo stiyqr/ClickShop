@@ -1,0 +1,11 @@
+<%- include('../../shared/includes/head', { pageTitle: 'All Your Orders' }) %>
+<link rel="stylesheet" href="/styles/orders.css">
+</head>
+<body>
+    <%- include('../../shared/includes/header', {haveBackBtn: false}) %>
+    <main>
+        <h1 class="lang-en">All Your Orders</h1>
+        <h1 class="lang-id">Pesanan Anda</h1>
+        <%- include('../../shared/includes/order-list') %>
+    </main>
+<%- include('../../shared/includes/footer') %>

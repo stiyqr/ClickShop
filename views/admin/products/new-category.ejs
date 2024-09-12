@@ -1,0 +1,12 @@
+<%- include('../../shared/includes/head', { pageTitle: 'Add New Category' }) %>
+<link rel="stylesheet" href="/styles/forms.css">
+<script src="/scripts/image-preview.js" defer></script>
+</head>
+<body>
+    <%- include('../../shared/includes/header', {haveBackBtn: true}) %>
+    <main>
+        <h1 class="lang-en">Add New Category</h1>
+        <h1 class="lang-id">Kategori Baru</h1>
+        <%- include('includes/category-form', { submitPath: '/admin/categories', category: { title: '' }, imageRequired: true }) %>
+    </main>
+<%- include('../../shared/includes/footer') %>

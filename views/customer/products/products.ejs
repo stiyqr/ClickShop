@@ -1,0 +1,21 @@
+<%- include('../../shared/includes/head', { pageTitle: subcategoryName }) %>
+<link rel="stylesheet" href="/styles/products.css">
+<script src="/scripts/cart-management.js" defer></script>
+</head>
+<body>
+    <%- include('../../shared/includes/header', {haveBackBtn: true}) %>
+    <main>
+        <h1><%= subcategoryName %></h1>
+        <ul id="products-grid">
+            <% if (!products || products.length === 0) { %>
+                <p class="lang-en">No products in store.</p>
+                <p class="lang-id">Tidak ada produk.</p>
+            <% } %>
+            <% for (const product of products) { %>
+            <li>
+                <%- include('../../shared/includes/product-item', { product: product }) %>
+            </li>
+            <% } %>
+        </ul>
+    </main>
+<%- include('../../shared/includes/footer') %>
