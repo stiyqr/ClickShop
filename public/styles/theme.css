@@ -5,3 +5,8 @@
     -o-object-fit:contain;
     object-fit:contain
 }
+
+.theme-logo {
+    height: 5rem;
+    overflow: hidden;
+}
