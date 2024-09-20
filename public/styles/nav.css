@@ -21,6 +21,7 @@ main {
     align-items: center;
     border-bottom: 1px solid var(--color-gray-700);
     background-color: var(--color-gray-800);
+    z-index: 3;
 }
 
 #top-header button:hover,
@@ -155,6 +156,7 @@ main {
 .dropdown {
     position: relative;
     display: inline-block;
+    z-index: 998;
 }
 
 /* Dropdown Content (Hidden by Default) */
@@ -164,7 +166,7 @@ main {
     background-color: var(--color-gray-800);
     min-width: 8rem;
     box-shadow: 0px 8px 16px 0px var(--color-gray-800-rgba);
-    z-index: 1;
+    z-index: 999;
     right:0
 }
 
@@ -177,6 +179,8 @@ main {
 }
 
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
-.show {
+#lang-dropdown-content.show,
+.dropdown-content.show {
     display:block;
+    z-index: 999;
 }
