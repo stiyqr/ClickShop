@@ -99,7 +99,7 @@ a {
 
 .btn-alt {
     border-color: transparent; /* x */
-    background-color: var(--color-gray-600); /* background-color: transparent; */
+    background-color: var(--color-gray-500); /* background-color: transparent; */
     color: var(--color-gray-100); /* color: var(--color-primary-500); */
 }
 
