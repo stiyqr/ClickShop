@@ -71,7 +71,7 @@ main {
 .tab-items a,
 .tab-items button,
 #logo #back-btn {
-    padding: var(--space-4) var(--space-4) var(--space-2) var(--space-4);
+    padding: var(--space-4) var(--space-2) var(--space-2) var(--space-2);
     border-radius: var(--border-radius-small);
     color: var(--color-gray-800);
 }
